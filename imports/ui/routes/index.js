@@ -13,6 +13,11 @@ let routes = [
       component: () => import('../pages/Category.vue'),
       name: 'about'
    },
+   {
+      path: '/customer',
+      component: () => import('../pages/Customer.vue'),
+      name: 'customer'
+   },
 ]
 
 const router = new VueRouter({ routes, mode: 'history' })

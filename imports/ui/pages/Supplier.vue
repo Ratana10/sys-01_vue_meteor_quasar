@@ -1,8 +1,7 @@
 <template>
 <div class="q-ma-md">
    <div class="q-mb-lg">
-      <q-btn color="primary" label="Add New Category" icon="add" @click="handleAdd" />
-
+      <q-btn color="primary" label="Add New Supplier" icon="add" @click="handleAdd" />
    </div>
    <q-dialog v-model="popup">
       <q-card>
@@ -12,29 +11,25 @@
          </q-card-section>
 
          <q-card-section>
-            <div class="text-h6 text-center text-uppercase">Add new Category</div>
+            <div class="text-h6 text-center text-uppercase">Supplier</div>
          </q-card-section>
 
          <q-card-section class="">
-            <category-form @close="handleClose" :editData="editData" />
+            <!-- <category-form @close="handleClose" :editData="editData" /> -->
          </q-card-section>
       </q-card>
    </q-dialog>
    <!-- <category-form /> -->
-   <category-table :categories="categories" @edit="handleEdit" @delete="handleDelete" />
+   <!-- <category-table :categories="categories" @edit="handleEdit" @delete="handleDelete" /> -->
 </div>
 </template>
 
 <script>
-import moment from 'moment';
-import CategoryForm from "../components/CategoryForm.vue";
-import CategoryTable from "../components/CategoryTable.vue";
+import moment from "moment";
+
 
 export default {
-   components: {
-      CategoryForm,
-      CategoryTable,
-   },
+   
    data() {
       return {
          categories: [],
@@ -43,10 +38,8 @@ export default {
       };
    },
    methods: {
-      handleAdd(){
-         this.editData = null,
-         this.popup = true;
-         
+      handleAdd() {
+         (this.editData = null), (this.popup = true);
       },
       handleClose() {
          this.popup = false;
@@ -57,7 +50,6 @@ export default {
          this.getData();
       },
       handleEdit(data) {
-
          this.editData = data;
          this.popup = true;
       },
