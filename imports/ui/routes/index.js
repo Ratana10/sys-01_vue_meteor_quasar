@@ -9,11 +9,11 @@ let routes = [
       name: 'home'
    },
    {
-      path: '/about',
-      component: () => import('../pages/About.vue'),
+      path: '/category',
+      component: () => import('../pages/Category.vue'),
       name: 'about'
    },
 ]
 
-const router = new VueRouter({ routes })
+const router = new VueRouter({ routes, mode: 'history' })
 export default router;
