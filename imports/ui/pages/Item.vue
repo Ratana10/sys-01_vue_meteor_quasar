@@ -1,7 +1,7 @@
 <template>
 <div class="q-ma-md">
    <div class="q-mb-lg">
-      <q-btn color="primary" label="Add New Supplier" icon="add" @click="handleAdd" />
+      <q-btn color="primary" label="Add New Item" icon="add" @click="handleAdd" />
    </div>
    <q-dialog v-model="popup">
       <q-card>
@@ -11,38 +11,40 @@
          </q-card-section>
 
          <q-card-section>
-            <div class="text-h6 text-center text-uppercase"  >Supplier</div>
+            <div class="text-h6 text-center text-uppercase">Item</div>
          </q-card-section>
 
          <q-card-section class="">
-            <supplier-form @close="handleClose" :editData="editData" />
+            <item-form  @close="handleClose" :editData="editData"  />
          </q-card-section>
       </q-card>
    </q-dialog>
-   <supplier-table :suppliers="suppliers" @edit="handleEdit" @delete="handleDelete" />
-
+   <!-- <supplier-table :suppliers="suppliers" @edit="handleEdit" @delete="handleDelete" /> -->
+   <item-table :items="items" @edit="handleEdit" @delete="handleDelete" />
 </div>
 </template>
 
 <script>
-import SupplierForm from '../components/SupplierForm.vue';
-import SupplierTable from '../components/SupplierTable.vue';
+import ItemForm from '../components/ItemForm.vue';
+import ItemTable from '../components/ItemTable.vue';
 
 
 export default {
-  components: { SupplierForm, SupplierTable },
-   
+   components: {
+      ItemForm,
+      ItemTable
+   },
+
    data() {
       return {
-         suppliers: [],
+         items: [],
          popup: false,
          editData: null,
-      
       };
    },
    methods: {
       handleAdd() {
-         this.editData = null; 
+         this.editData = null;
          this.popup = true;
       },
       handleClose() {
@@ -58,9 +60,9 @@ export default {
          this.popup = true;
       },
       getData() {
-         Meteor.call("supplier.data", (err, result) => {
+         Meteor.call("item.data", (err, result) => {
             if (result) {
-               this.suppliers = result;
+               this.items = result;
             } else {
                console.log("error in serve", err);
             }

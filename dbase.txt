@@ -1,0 +1,35 @@
+-- Category --
+name
+date
+description
+
+-- Customer --
+name
+gender
+dob
+phone
+address
+status
+
+-- Supplier --
+company
+ownername
+phone
+status
+address
+
+-- Item --
+name
+categoryId
+date
+description
+status 'active' 'inactive'
+
+-- purchase --
+supplierId
+itemid
+cost
+price
+qty
+date
+status

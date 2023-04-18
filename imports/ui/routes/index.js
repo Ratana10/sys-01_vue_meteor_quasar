@@ -9,14 +9,34 @@ let routes = [
       name: 'home'
    },
    {
-      path: '/category',
+      path: '/user',
       component: () => import('../pages/Category.vue'),
-      name: 'about'
+      name: 'user'
    },
    {
       path: '/customer',
       component: () => import('../pages/Customer.vue'),
       name: 'customer'
+   },
+   {
+      path: '/Category',
+      component: () => import('../pages/Category.vue'),
+      name: 'customer'
+   },
+   {
+      path: '/item',
+      component: () => import('../pages/Item.vue'),
+      name: 'item'
+   },
+   {
+      path: '/supplier',
+      component: () => import('../pages/Supplier.vue'),
+      name: 'supplier'
+   },
+   {
+      path: '/purchase',
+      component: () => import('../pages/Customer.vue'),
+      name: 'purchase'
    },
 ]
 
