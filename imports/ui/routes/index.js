@@ -35,7 +35,12 @@ let routes = [
    },
    {
       path: '/purchase',
-      component: () => import('../pages/Customer.vue'),
+      component: () => import('../pages/Purchase.vue'),
+      name: 'purchase'
+   },
+   {
+      path: '/import',
+      component: () => import('../pages/Import.vue'),
       name: 'purchase'
    },
 ]
